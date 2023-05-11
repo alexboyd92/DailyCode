@@ -1,4 +1,6 @@
-//Description givien an array of intergets return the two indencies whos sum is eqaul to a given target assuming that each input has one solution
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+//Description given an array of integers return the two indices whos sum is equal to a given target assuming that each input has one solution
 import java.util.Scanner;
 class TwoSum {
 
@@ -14,27 +16,34 @@ class TwoSum {
         return new int[] {};
     }
 
+
 public static void main(String[] args){
-Scanner input = new Scanner(System.in);
-int arraySize= input.nextInt;
-int [] nums = new int[arraySize];
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter size of array");
+        int arraySize= input.nextInt();
+        int [] nums = new int[arraySize];
+        System.out.println("Please enter the array:");
 //fill the array
- for(int i = 0; i < arraySize; i++) {
+        for(int i = 0; i < arraySize; i++) {
             nums[i] = input.nextInt();
+
         }
- //get the target number 
-   int target = input.nextInt();
+        //get the target number
+    System.out.println("enter target number");
+        int target = input.nextInt();
 // close the scanner
-input.close();
-//make a new array by calling the brute force class  should return a int array
-int[] indicies =bruteForce(nums, target);
-// check if the indencies array is of lenght 2 if there are more or less then a solution cant be found 
-if (indices.length == 2) {
-            System.out.println("the numbers that add ot " +target+ "are"+indices[0] + " " + indices[1]);
+        input.close();
+//make a new array by calling the brute force class  should return an int array
+        int[] indices  = bruteForce(nums, target);
+// check if the indices  array is of length 2 if there are more or less  a solution cant be found
+        if (indices.length == 2) {
+           System.out.printf("The numbers that add to %d are at indices %d %d",target,indices[0]+1,indices[1]+1);
         } else {
-            System.out.println("Could not find a soulution");
+            System.out.println("Could not find a Solution");
 
 
 
 
+        }
+    }
 }
