@@ -29,6 +29,7 @@ public class ParenthesesGenerator {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please enter how many pairs of parentheses there are");
         int n = userInput.nextInt();
+        userInput.close();
         // Create a new ParenthesesGenerator named generate
         ParenthesesGenerator generate = new ParenthesesGenerator();
         // call it with the input stored in n and then print the result
