@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-/* Given a number (n) pairs of pratheses generate all combination of well formed parentheses. */
+/* Given a number (n) pairs of parentheses generate all combination of well-formed parentheses. */
 public class ParenthesesGenerator {
     /* Only add an open parenthesis if open<n
        Only add a close parenthesis if closed <open
-       Is well formed if and only if open is equal to closed is equal to number of pair of parentheses
+       Is well-formed if and only if open is equal to closed is equal to number of a pair of parentheses
     * */
     public List<String> generate(int n) {
         List<String>result=new ArrayList<>();
