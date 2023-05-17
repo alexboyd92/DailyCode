@@ -4,11 +4,24 @@ import java.util.Scanner;
 public class Driver {
     public static void main(String[] args) {
         Options[]menuOptions  = new Options[5];
-        menuOptions[0] =new Options("Two sum problem","test description 1");
-        menuOptions[1] =new Options("Parentheses generator","test description 2");
-        menuOptions[2] =new Options("Add two Numbers","test description 3");
-        menuOptions[3] =new Options("Palindrome number checking","test description 4");
-        menuOptions[4] =new Options("Remove duplicate integers from array","test description 5");
+        menuOptions[0] =new Options("Two sum problem"," Given an array of integers, return indices of the two " +
+                "numbers such that they add up to a specific target."
+                );
+        menuOptions[1] =new Options("Parentheses generator",
+                "Given a number (n) pairs of parentheses generate all combination of well-formed parentheses. ");
+
+        menuOptions[2] =new Options("Add two Numbers", """
+                You give two non-empty linked lists representing two non-negative integers. 
+                The digits are stored in reverse order, and each of their nodes contains a single digit. 
+                Add the two numbers and return the sum as a linked list.""");
+
+        menuOptions[3] =new Options("Palindrome number checking", """
+                Given an integer x, return true if x is a palindrome and false otherwise """);
+
+        menuOptions[4] =new Options("Remove duplicate integers from array",
+                "Given an integer array  sorted in non-decreasing order, " +
+                        "remove the duplicates in-place such that each unique element appears only once. " +
+                        "The relative order of the elements should be kept the same");
         new GuiMenu(menuOptions);
        /// menu();
 

@@ -14,34 +14,30 @@ public class GuiMenu extends JFrame implements ActionListener{
     GuiMenu(Options[] menuOptions){
         this.menuOptions=menuOptions;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout());
+        this.setLayout(null);
         this.setLocationRelativeTo(null);
         String[] options = {"Please select option"};
-
-
+        this.setResizable(false);
+        // width and height of window
+        this.setSize(500,270);
+        this.setBackground(Color.darkGray);
         box = new JComboBox<>(options);
 
         for (Options menuOption : menuOptions) {
             box.addItem(menuOption.getTitle());
         }
         box.addActionListener(this);
-        //Create label to hold the description of what is selected set it to right alignment
-        description = new JLabel("<html>"+"""
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                """+"/<html>");
-
-        this.setBackground(Color.blue);
+        //Create label to hold the description of what is selected set
+        description = new JLabel();
+        description.setText("Please make a selection");
         this.setBackground(Color.DARK_GRAY);
-        description.setBounds(0,20,500,250);
+        description.setBounds(0,20,475,300);
         description.setBackground(Color.LIGHT_GRAY);
         description.setOpaque(true);
-        this.setLayout(null);
-        box.setBounds(0,0,500,20);
+        box.setBounds(0,0,490,20);
+        box.setBackground(Color.darkGray);
+        box.setForeground(Color.BLACK);
 
-        this.setSize(500,270);
         this.add(box);
         this.add(description);
 
@@ -53,7 +49,7 @@ public class GuiMenu extends JFrame implements ActionListener{
         int currIndex=box.getSelectedIndex();
         if(e.getSource()== box) {
            if(currIndex!=0){
-               System.out.println(this.menuOptions[currIndex-1].getDescription());
+               description.setText("<HTML>"+this.menuOptions[currIndex-1].getDescription());
 
            }
 
