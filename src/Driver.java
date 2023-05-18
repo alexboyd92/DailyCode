@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Driver {
     public static void main(String[] args) {
-        Options[] menuOptions = new Options[5];
+        Options[] menuOptions = new Options[6];
         menuOptions[0] = new Options("Two sum problem", " Given an array of integers, return indices of the two " +
                 "numbers such that they add up to a specific target."
         );
@@ -23,14 +23,20 @@ public class Driver {
                 "Given an integer array  sorted in non-decreasing order, " +
                         "remove the duplicates in-place such that each unique element appears only once. " +
                         "The relative order of the elements should be kept the same");
-        new GuiMenu(menuOptions);
-        /// menu();
+        menuOptions[5]= new Options("Longest Palindromic substring",
+                "Given a string find the longest substring that is a palindrome");
 
 
+        if(args.length!=0&&args[0].equals("cli")){
+            menu();
+
+
+        }
+        else
+            new GuiMenu(menuOptions);
     }
 
 
-    /* Old method to access the programs in a cmd line menu might be kept to practice with starting arguments? */
     public static void menu() {
         Scanner userInput = new Scanner(System.in);
         System.out.println("""
@@ -39,7 +45,8 @@ public class Driver {
                 2) Parentheses generator
                 3) Add two Numbers
                 4) Palindrome number checking
-                5) Remove duplicate integers from array""");
+                5) Remove duplicate integers from array
+                6) Longest palindromic substring""");
         int selection = userInput.nextInt();
         switch (selection) {
             case 1 -> twoSum.twoSum();
@@ -47,6 +54,7 @@ public class Driver {
             case 3 -> AddTwoNumbers.getInput();
             case 4 -> PalindromeNumber.getinput();
             case 5 -> RemoveDup.getArray();
+            case 6 -> LongestPalindrome.cmdImput();
             default -> System.out.println("No choice matches selection");
         }
         userInput.close();

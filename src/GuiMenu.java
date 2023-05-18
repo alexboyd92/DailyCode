@@ -58,7 +58,7 @@ public class GuiMenu extends JFrame implements ActionListener {
         // add all the components to the frame
         this.add(run, BorderLayout.SOUTH);
         this.add(box, BorderLayout.NORTH);
-
+        this.add(description, BorderLayout.CENTER);
         this.setVisible(true);
 
 
@@ -85,6 +85,7 @@ public class GuiMenu extends JFrame implements ActionListener {
                 case 3 -> AddTwoNumbers.getInput();
                 case 4 -> PalindromeNumber.getinput();
                 case 5 -> RemoveDup.getArray();
+                case 6 -> LongestPalindrome.cmdImput();
                 default -> System.out.println("No choice matches selection");
             }
             this.dispose();
