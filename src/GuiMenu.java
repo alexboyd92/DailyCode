@@ -78,17 +78,17 @@ public class GuiMenu extends JFrame implements ActionListener {
         }
         // check if the button was pressed
         if (e.getSource() == run) {
-            System.out.println(currIndex);
+            this.dispose();
             switch (currIndex) {
                 case 1 -> twoSum.twoSum();
-                case 2 -> ParenthesesGenerator.getResult();
+                case 2 -> new GuiParenthesesGenerator();
                 case 3 -> AddTwoNumbers.getInput();
                 case 4 -> PalindromeNumber.getinput();
                 case 5 -> RemoveDup.getArray();
                 case 6 -> LongestPalindrome.cmdImput();
                 default -> System.out.println("No choice matches selection");
             }
-            this.dispose();
+
 
         }
     }
