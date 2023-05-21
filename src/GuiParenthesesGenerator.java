@@ -13,9 +13,7 @@ public class GuiParenthesesGenerator extends JFrame implements ActionListener {
     private JPanel inputPanel;
     private JButton close;
     private JPanel buttonPanel;
-    private JPanel resultPanel;
     private JPanel panel;
-    private JLabel label2;
 
     public GuiParenthesesGenerator() {
         this.setTitle("Parenthesis Generator");
@@ -28,9 +26,7 @@ public class GuiParenthesesGenerator extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
 
 
-
-       this.add(panel);
-
+        this.add(panel);
 
 
         close.addActionListener(this);
@@ -44,17 +40,9 @@ public class GuiParenthesesGenerator extends JFrame implements ActionListener {
         if (run == e.getSource()) {
             try {
                 int n = Integer.parseInt(input.getText());
-                label2.setText("Here are all the well-formed options for "+ n +
-                        " pairs of parentheses\n");
-                result.setText("<HTML>"
-                        +ParenthesesGenerator.getResult(n));
-                result.setForeground(Color.BLACK);
-                result.setVisible(true);
-                run.setEnabled(false);
-                close.setVisible(true);
-                input.setVisible(false);
-                instructions.setVisible(false);
-
+                new GuiResults("Here are all the well-formed options for " + n +
+                        " pairs of parentheses", ParenthesesGenerator.getResult(n));
+                this.dispose();
 
             } catch (NumberFormatException nfe) {
                 input.setText(null);

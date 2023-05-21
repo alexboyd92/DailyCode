@@ -16,6 +16,7 @@ public class GuiMenu extends JFrame implements ActionListener {
 
     GuiMenu(Options[] menuOptions) {
         //set menu options to what is passed in
+        this.setTitle("Code a Day Project");
         this.menuOptions = menuOptions;
         // Tell it to end the program on closing the frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
