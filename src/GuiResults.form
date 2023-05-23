@@ -31,6 +31,7 @@
             <properties>
               <text value=""/>
               <verticalAlignment value="1"/>
+              <verticalTextPosition value="0"/>
             </properties>
           </component>
           <scrollpane id="8d1d3" binding="scrollText">

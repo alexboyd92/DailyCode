@@ -20,15 +20,14 @@ public class GuiPalindromeCheck extends JFrame implements ActionListener {
         // Basic window setup
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon("src/Logo3-BW.png").getImage());
-        this.setSize(600, 250);
         this.setLocationRelativeTo(null);
         this.setTitle("Palindrome Checker");
         this.add(panel);
-
         closeButton.addActionListener(this);
         runButton.addActionListener(this);
         this.setResizable(false);
         this.setVisible(true);
+        this.pack();
 
     }
 
