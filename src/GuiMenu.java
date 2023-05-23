@@ -70,7 +70,10 @@ public class GuiMenu extends JFrame implements ActionListener {
         int currIndex = box.getSelectedIndex();
         // check if the action is caused by the selection box
         if (e.getSource() == box) {
-            if (currIndex != 0) {
+            if(currIndex==0){
+                description.setText("Please make a selection");
+
+            }            if (currIndex != 0) {
                 description.setText("<HTML>" + this.menuOptions[currIndex - 1].getDescription());
                 run.setEnabled(true);
                 run.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -84,7 +87,7 @@ public class GuiMenu extends JFrame implements ActionListener {
                 case 1 -> twoSum.twoSum();
                 case 2 -> new GuiParenthesesGenerator();
                 case 3 -> AddTwoNumbers.getInput();
-                case 4 -> PalindromeNumber.getinput();
+                case 4 -> new GuiPalindromeCheck();
                 case 5 -> RemoveDup.getArray();
                 case 6 -> LongestPalindrome.cmdImput();
                 default -> System.out.println("No choice matches selection");
