@@ -88,7 +88,7 @@ public class GuiMenu extends JFrame implements ActionListener {
                 case 2 -> new GuiParenthesesGenerator();
                 case 3 -> AddTwoNumbers.getInput();
                 case 4 -> new GuiPalindromeCheck();
-                case 5 -> RemoveDup.getArray();
+                case 5 -> new GuiRemoveDup();
                 case 6 -> LongestPalindrome.cmdImput();
                 default -> System.out.println("No choice matches selection");
             }

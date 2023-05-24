@@ -13,7 +13,7 @@ public class GuiParenthesesGenerator extends JFrame implements ActionListener {
     private JPanel inputPanel;
     private JButton close;
     private JPanel buttonPanel;
-    private JPanel panel;
+    private JPanel dupePanel;
 
     public GuiParenthesesGenerator() {
         this.setTitle("Parenthesis Generator");
@@ -26,7 +26,7 @@ public class GuiParenthesesGenerator extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
 
 
-        this.add(panel);
+        this.add(dupePanel);
 
 
         close.addActionListener(this);
