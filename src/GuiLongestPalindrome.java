@@ -17,16 +17,20 @@ public class GuiLongestPalindrome extends JFrame implements ActionListener {
         // basic window setup
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon("src/Logo3-BW.png").getImage());
+        this.setSize(600, 300);
         this.setLocationRelativeTo(null);
+
+
+        // add instructions
         this.setTitle("Palindrome Checker");
         lpInstructions.setText("Provide a string to check for palindromes");
 
         // add panel
-        this.add(inputPanel);
+
         closeButton.addActionListener(this);
         sumbitButton.addActionListener(this);
+
         this.setVisible(true);
-        this.pack();
 
     }
     @Override
