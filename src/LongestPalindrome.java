@@ -3,7 +3,8 @@ package src;
 import java.util.Scanner;
 
 public class LongestPalindrome {
-    private static void findLongestPalindrome(String input) {
+    public static String findLongestPalindrome(String input) {
+        input= input.toLowerCase();
         int n = input.length();
         if (n == 0)
             System.out.println("String is empty");
@@ -38,13 +39,13 @@ public class LongestPalindrome {
             }
         }
 
-        System.out.println("The longest palindromic substring is: "+input.substring(minstart, minstart + maxlen));
+        return input.substring(minstart, minstart + maxlen);
     }
     public static void cmdImput() {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please enter string");
         String input = userInput.next();
-        findLongestPalindrome(input);
 
+        System.out.println("The longest palindromic substring is: "+findLongestPalindrome(input));
     }
 }

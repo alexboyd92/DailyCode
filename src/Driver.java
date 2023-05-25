@@ -6,8 +6,6 @@ public class Driver {
     public static void main(String[] args) {
 
 
-
-
         Options[] menuOptions = new Options[6];
         menuOptions[0] = new Options("Two sum problem", " Given an array of integers, return indices of the two " +
                 "numbers such that they add up to a specific target."
