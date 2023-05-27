@@ -49,10 +49,12 @@ public class GuiParenthesesGenerator extends JFrame implements ActionListener {
                 result.setText("Not an integer");
                 result.setVisible(true);
                 result.setForeground(Color.red);
+
             }
         }
         if (e.getSource() == close) {
             this.dispose();
+
         }
 
     }

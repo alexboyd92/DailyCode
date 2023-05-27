@@ -84,7 +84,7 @@ public class GuiMenu extends JFrame implements ActionListener {
         if (e.getSource() == run) {
             this.dispose();
             switch (currIndex) {
-                case 1 -> twoSum.twoSum();
+                case 1 -> new GuiTwoSum();
                 case 2 -> new GuiParenthesesGenerator();
                 case 3 -> AddTwoNumbers.getInput();
                 case 4 -> new GuiPalindromeCheck();
