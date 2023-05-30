@@ -8,28 +8,68 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 * 352+252 would be num1=[2,5,3,] num2 =[2,5,2]
 *
 * */
-class LinkNode {
-    int value;
-    LinkNode next;
 
-    LinkNode() {
-    }
 
-    LinkNode(int value) {
-        this.value = value;
-    }
-
-    LinkNode(int value, LinkNode next) {
-        this.value = value;
-        this.next = next;
-    }
-}
+import java.util.Scanner;
 
 public class AddTwoNumbers {
-    public LinkNode addNums(LinkNode num1, LinkNode num2) {
 
-        LinkNode dummy = new LinkNode(0);
-        LinkNode current = dummy;
+
+    public static void getInput() {
+        Scanner input = new Scanner(System.in);
+        int number1;
+        int number2;
+        int result = 0;
+        int finalResult = 0;
+
+        System.out.println("Enter an integer");
+        number1 = input.nextInt();
+        System.out.println("Enter a second integer with the same number of digits as the first number");
+        number2 = input.nextInt();
+        if (String.valueOf(number1).length() != String.valueOf(number2).length()) {
+            System.out.println("The integers must have the same numebr of digits");
+        } else {
+            LinkList linkedNum1 = new LinkList();
+            linkedNum1 = insertNum(linkedNum1, number1);
+            LinkList linkedNum2 = new LinkList();
+            linkedNum2 = insertNum(linkedNum2, number2);
+
+            LinkList.LinkNode resultNode = addNums(linkedNum1.head, linkedNum2.head);
+            while (resultNode != null) {
+                result = result * 10 + resultNode.value;
+                resultNode = resultNode.next;
+            }
+            while (result != 0) {
+                int digit = result % 10;
+                finalResult = finalResult * 10 + digit;
+                result /= 10;
+
+            }
+            System.out.println("Got: " + finalResult + " From " + number1 + "+" + number2);
+
+        }
+
+    }
+
+    public static LinkList insertNum(LinkList link, int num) {
+
+        while (num != 0) {
+
+            // get last digit from num
+            int digit = num % 10;
+            link = LinkList.insert(link, digit);
+            // remove the last digit from num
+            num /= 10;
+        }
+
+        return link;
+
+    }
+
+    public static LinkList.LinkNode addNums(LinkList.LinkNode num1, LinkList.LinkNode num2) {
+
+        LinkList.LinkNode dummy = new LinkList.LinkNode(0);
+        LinkList.LinkNode current = dummy;
         int carry = 0;
 
         // while loop will run, until num1 OR num2 not reaches null OR if they both reaches null. But our carry has some value in it.
@@ -45,26 +85,11 @@ public class AddTwoNumbers {
             }
             sum += carry; // if we have carry then add it into our sum
             carry = sum / 10; // if we get carry, then divide it by 10 to get the carry
-            LinkNode node = new LinkNode(sum % 10); // the value we'll get by moduloing it, will become as new node so. add it to our list
+            LinkList.LinkNode node = new LinkList.LinkNode(sum % 10); // the value we'll get by moduloing it, will become as new node so. add it to our list
             current.next = node; // curr will point to that new node if we get
             current = current.next; // update the current every time
         }
 
         return dummy.next;
     }
-
-    //TODO implement putting 3 digit number into linked list (LinkNode) then sending it to addition function  then print out result
-    public static void getInput() {
-        int number1 = 321;
-        int number2 = 252;
-        int tempNum;
-        LinkNode num1 = new LinkNode();
-        LinkNode num2 = new LinkNode();
-        System.out.println("Not yet implemented");
-    }
-
-
 }
-
-
-//create simple linked list of integers to use;

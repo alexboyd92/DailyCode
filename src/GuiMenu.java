@@ -86,7 +86,7 @@ public class GuiMenu extends JFrame implements ActionListener {
             switch (currIndex) {
                 case 1 -> new GuiTwoSum();
                 case 2 -> new GuiParenthesesGenerator();
-                case 3 -> AddTwoNumbers.getInput();
+                case 3 -> new GuiResults("This function has yet to be implemented","");
                 case 4 -> new GuiPalindromeCheck();
                 case 5 -> new GuiRemoveDup();
                 case 6 -> new GuiLongestPalindrome();
