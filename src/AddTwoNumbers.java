@@ -65,6 +65,23 @@ public class AddTwoNumbers {
         return link;
 
     }
+    public static int decodeResult(LinkList.LinkNode head){
+        int result=0;
+        int finalResult=0;
+        //Get values and store them in int
+        while (head != null) {
+            result = result * 10 + head.value;
+            head = head.next;
+        }
+        //Reverse integer so its read normally
+        while (result != 0) {
+            int digit = result % 10;
+            finalResult = finalResult * 10 + digit;
+            result /= 10;
+
+        }
+        return finalResult;
+    }
 
     public static LinkList.LinkNode addNums(LinkList.LinkNode num1, LinkList.LinkNode num2) {
 
