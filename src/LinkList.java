@@ -53,10 +53,22 @@ public class LinkList {
             // Traverse through the LinkedList
             while (currNode != null) {
                 // Print the data at current node
-                System.out.print(currNode.value + " ");
+                if(currNode.next==null){
+                    System.out.println(currNode.value);
+                }else {
+                System.out.print(currNode.value + ",");}
 
                 // Go to next node
                 currNode = currNode.next;
+            }
+
+        }
+        public static void fillList(LinkList list,int[] intArray){
+            for (int x :
+                    intArray) {
+                LinkList.insert(list, x);
+
+
             }
         }
 
