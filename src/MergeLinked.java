@@ -9,7 +9,7 @@ public class MergeLinked {
     public static LinkList.LinkNode merge(LinkList.LinkNode l1, LinkList.LinkNode l2) {
         LinkList.LinkNode head = new LinkList.LinkNode(0);
         LinkList.LinkNode handler = head;
-        while(l1 != null && l2 != null) {
+        while (l1 != null && l2 != null) {
             if (l1.value <= l2.value) {
                 handler.next = l1;
                 l1 = l1.next;
@@ -42,30 +42,37 @@ public class MergeLinked {
         splitInput = dirtyInput.split(",");
 
 
-        arrayOne = fillArray(splitInput);
-        Arrays.sort(arrayOne);
-        if (arrayOne != null) {
-            System.out.println("Enter Second array separated by commas EX 1,2,3");
-            dirtyInput = userinput.next();
-            splitInput = dirtyInput.split(",");
+        try {
+            arrayOne = fillArray(splitInput);
+            Arrays.sort(arrayOne);
+        } catch (Exception e) {
+            System.out.println("Not a valid input");
+            return;
+        }
+
+
+        System.out.println("Enter Second array separated by commas EX 1,2,3");
+        dirtyInput = userinput.next();
+        splitInput = dirtyInput.split(",");
+        try {
             arrayTwo = fillArray(splitInput);
             Arrays.sort(arrayTwo);
-            if (arrayTwo != null) {
-               LinkList.fillList(listOne,arrayOne);
-               LinkList.fillList(listTwo,arrayTwo);
-               listTwo.head= merge(listOne.head,listTwo.head);
-               System.out.println("Result:");
-               LinkList.printList(listTwo);
-
-            }
+        } catch (Exception e) {
+            System.out.println("not a valid input ");
+            return;
 
 
         }
+        LinkList.fillList(listOne, arrayOne);
+        LinkList.fillList(listTwo, arrayTwo);
+        listTwo.head = merge(listOne.head, listTwo.head);
+        System.out.println("Result:");
+        LinkList.printList(listTwo);
 
 
     }
 
-    public static int[] fillArray(String[] input) {
+    public static int[] fillArray(String[] input) throws NumberFormatException {
         int[] toFill = new int[input.length];
 
         for (int i = 0; i < input.length; i++) {
@@ -75,8 +82,9 @@ public class MergeLinked {
 
 
                 } catch (Exception e) {
-                    System.out.println("Improper formatting");
+
                     toFill = null;
+                    throw new NumberFormatException("Error");
 
                 }
             }

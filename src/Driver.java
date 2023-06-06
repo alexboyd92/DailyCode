@@ -3,6 +3,7 @@ package src;
 import java.util.Scanner;
 
 public class Driver {
+
     public static void main(String[] args) {
         Options[] menuOptions = new Options[7];
         menuOptions[0] = new Options("Two sum problem", " Given an array of integers, return indices of the two " +

@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+
+import static src.MergeLinked.fillArray;
 
 public class GUIMergeSortedLink extends JFrame implements ActionListener {
     private JPanel inputPanel;
@@ -40,8 +43,57 @@ public class GUIMergeSortedLink extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==closeButton){
             this.dispose();
+
         }
         if(e.getSource()==submitButton){
+
+            String dirtyInput;
+            String[] splitInput;
+            int[] arrayOne;
+            int[] arrayTwo;
+            boolean passed=false;
+            LinkList listOne = new LinkList();
+            LinkList listTwo = new LinkList();
+
+
+
+            try {
+                dirtyInput= textField1.getText();
+                splitInput = dirtyInput.split(",");
+                arrayOne = fillArray(splitInput);
+                Arrays.sort(arrayOne);
+
+                if (arrayOne != null) {
+                    passed=true;
+
+                    dirtyInput = textField2.getText();
+                    splitInput = dirtyInput.split(",");
+                    arrayTwo = fillArray(splitInput);
+                    Arrays.sort(arrayTwo);
+                    if (arrayTwo != null) {
+                        LinkList.fillList(listOne,arrayOne);
+                        LinkList.fillList(listTwo,arrayTwo);
+                        listTwo.head= MergeLinked.merge(listOne.head,listTwo.head);
+                        System.out.println("Result:");
+                        LinkList.printList(listTwo);
+
+                    }
+            }
+            }catch (NumberFormatException nfe){
+                if (passed){
+                    textField2.setText("");
+                    errTwo.setText("Not a valid array");
+                }else {
+                    textField1.setText("");
+                    errOne.setText("Not a valid array ");
+                }
+
+
+
+
+
+
+            }
             this.dispose();
         }
 
