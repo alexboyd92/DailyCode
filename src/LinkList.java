@@ -63,7 +63,24 @@ public class LinkList {
             }
 
         }
-        public static void fillList(LinkList list,int[] intArray){
+
+    @Override
+    public String toString() {
+      LinkNode currNode =this.head;
+        String finalstring="[";
+        while (currNode!=null){
+            if(currNode.next==null){
+                finalstring=finalstring+currNode.value+"]";
+            }else {
+                finalstring=finalstring+currNode.value + " ,";}
+                currNode = currNode.next;
+        }
+
+
+        return finalstring;
+        }
+
+    public static void fillList(LinkList list, int[] intArray){
             for (int x :
                     intArray) {
                 LinkList.insert(list, x);

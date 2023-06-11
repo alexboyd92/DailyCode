@@ -20,7 +20,7 @@ public class GUIMergeSortedLink extends JFrame implements ActionListener {
     private JLabel errTwo;
     private JLabel errOne;
 
-    GUIMergeSortedLink(){
+    GUIMergeSortedLink() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon("src/Logo3-BW.png").getImage());
         this.setSize(650, 200);
@@ -41,61 +41,61 @@ public class GUIMergeSortedLink extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==closeButton){
+        if (e.getSource() == closeButton) {
             this.dispose();
 
         }
-        if(e.getSource()==submitButton){
-
+        if (e.getSource() == submitButton) {
             String dirtyInput;
             String[] splitInput;
             int[] arrayOne;
             int[] arrayTwo;
-            boolean passed=false;
+            boolean passed = false;
             LinkList listOne = new LinkList();
             LinkList listTwo = new LinkList();
 
-
-
+            arrayOne = null;
             try {
-                dirtyInput= textField1.getText();
+                dirtyInput = textField1.getText();
                 splitInput = dirtyInput.split(",");
+
                 arrayOne = fillArray(splitInput);
                 Arrays.sort(arrayOne);
-
                 if (arrayOne != null) {
-                    passed=true;
+                    errOne.setVisible(false);
+                    passed = true;
 
                     dirtyInput = textField2.getText();
                     splitInput = dirtyInput.split(",");
                     arrayTwo = fillArray(splitInput);
                     Arrays.sort(arrayTwo);
                     if (arrayTwo != null) {
-                        LinkList.fillList(listOne,arrayOne);
-                        LinkList.fillList(listTwo,arrayTwo);
-                        listTwo.head= MergeLinked.merge(listOne.head,listTwo.head);
-                        System.out.println("Result:");
-                        LinkList.printList(listTwo);
+                        errTwo.setVisible(false);
+                        LinkList.fillList(listOne, arrayOne);
+                        LinkList.fillList(listTwo, arrayTwo);
+                        listTwo.head = MergeLinked.merge(listOne.head, listTwo.head);
+                        new GuiResults("The resulting linked list is:",listTwo.toString());
+                        this.dispose();
 
                     }
-            }
-            }catch (NumberFormatException nfe){
-                if (passed){
+
+                }
+            } catch (NumberFormatException nfe) {
+                if (passed) {
                     textField2.setText("");
                     errTwo.setText("Not a valid array");
-                }else {
+                } else
                     textField1.setText("");
-                    errOne.setText("Not a valid array ");
-                }
-
-
-
-
-
-
+                errOne.setText("Not a valid array ");
             }
-            this.dispose();
-        }
 
+        }
     }
 }
+
+
+
+
+
+
+
