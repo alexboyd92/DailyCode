@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Driver {
 
     public static void main(String[] args) {
-        Options[] menuOptions = new Options[7];
+        Options[] menuOptions = new Options[8];
         menuOptions[0] = new Options("Two sum problem", " Given an array of integers, return indices of the two " +
                 "numbers such that they add up to a specific target."
         );
@@ -26,7 +26,9 @@ public class Driver {
                         "The relative order of the elements should be kept the same");
         menuOptions[5]= new Options("Longest Palindromic substring",
                 "Given a string find the longest substring that is a palindrome");
-        menuOptions[6] = new Options("Merge Sorted Linked list", " Given two sorted linked list merge them ."
+        menuOptions[6] = new Options("Merge Sorted Linked list", " Given two sorted linked list merge them."
+        );
+        menuOptions[7] = new Options("Reverse integer", "Given an integer reverse it."
         );
 
 
@@ -48,7 +50,8 @@ public class Driver {
                 4) Palindrome number checking
                 5) Remove duplicate integers from array
                 6) Longest palindromic substring
-                7) Merge Sorted Linked List""");
+                7) Merge Sorted Linked List
+                8) Reverse integer""");
         int selection = userInput.nextInt();
         switch (selection) {
             case 1 -> twoSum.twoSum();
@@ -58,6 +61,7 @@ public class Driver {
             case 5 -> RemoveDup.getArray();
             case 6 -> LongestPalindrome.cmdImput();
             case 7 -> MergeLinked.getInput();
+            case 8 -> ReverseInt.getInput();
             default -> System.out.println("No choice matches selection");
         }
         userInput.close();
